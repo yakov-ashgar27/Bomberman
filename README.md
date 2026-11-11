@@ -10,9 +10,9 @@ drawn in code, so the game ships no media files.
 
 | Document | Link |
 |----------|------|
-| Software Requirements Specification (Hebrew) | [docs/SRS.md](docs/SRS.md) · [live doc](https://claude.ai/artifact/YUsrtuZm8a6WFD5jfL7bHA) |
+| Software Requirements Specification (Hebrew) | [Markdown](docs/SRS.md) · [PDF](docs/SRS.pdf) · [Word](docs/SRS.docx) · [live doc](https://claude.ai/artifact/YUsrtuZm8a6WFD5jfL7bHA) |
+| Presentation, 13 slides (Hebrew) | [PDF](docs/presentation/Bomberman-presentation.pdf) · [slide images](docs/presentation/slides/) · [source](docs/presentation/source/) · [live deck](https://claude.ai/artifact/8EieE4a2x1gf9HTao65He2) |
 | Work plan & team roles (Hebrew) | [docs/WORK_PLAN.md](docs/WORK_PLAN.md) |
-| Presentation, 13 slides (Hebrew) | [live deck](https://claude.ai/artifact/8EieE4a2x1gf9HTao65He2) |
 
 ![Architecture](docs/images/architecture.png)
 
@@ -85,6 +85,7 @@ levels/level1..5.txt    the levels (editable by hand)
 PLAY_BOMBERMAN.bat      one-click launcher for Windows
 tools/generate_levels.py  regenerates the levels from fixed seeds
 tests/                  pytest unit + integration tests
+docs/                   SRS (md/pdf/docx), work plan, diagrams, presentation
 ```
 
 ## Editing levels

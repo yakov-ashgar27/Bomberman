@@ -3,3 +3,4 @@ __pycache__/
 .pytest_cache/
 highscores.json
 settings.json
+docs/presentation/source/build/

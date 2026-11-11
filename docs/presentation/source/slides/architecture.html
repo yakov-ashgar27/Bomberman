@@ -1,0 +1,87 @@
+<section id="architecture" data-transition="fade" style="background:#F6F1E7;color:#3E4560;font-family:'Rubik', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:28px;font-weight:600;color:#B04E06;text-align:right">‫ארכיטקטורה‬</p>
+<h2 style="font-size:72px;font-weight:700;line-height:1.1;color:#1F2438;text-align:right">‫הלוגיקה נפרדת מהתצוגה ונבדקת בלי חלון‬</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;flex-direction:column;gap:10px;background:#ECE4D3;padding:18px 28px;border-radius:20px">
+<div style="display:flex;flex-direction:row-reverse;gap:16px;align-items:baseline">
+<h3 style="font-size:32px;font-weight:700;color:#1F2438;text-align:right">‫שכבת התצוגה‬</h3>
+<p style="font-size:24px;color:#3E4560;text-align:right">‫השכבה היחידה שתלויה בספריית הגרפיקה‬</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;gap:20px">
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFDF8;padding:14px 16px;border:2px solid #E4DCCB;border-radius:14px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;color:#1F2438;text-align:center">app.py</p>
+<p style="font-size:24px;color:#3E4560;text-align:center">‫לולאה, קלט ומסכים‬</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFDF8;padding:14px 16px;border:2px solid #E4DCCB;border-radius:14px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;color:#1F2438;text-align:center">renderer.py</p>
+<p style="font-size:24px;color:#3E4560;text-align:center">‫ציור המסך‬</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFDF8;padding:14px 16px;border:2px solid #E4DCCB;border-radius:14px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;color:#1F2438;text-align:center">sound.py</p>
+<p style="font-size:24px;color:#3E4560;text-align:center">‫צלילים ומוזיקה‬</p>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;justify-content:center;gap:16px;align-items:center">
+<x-shape kind="arrow-down" style="background:#B04E06;width:32px;height:40px"></x-shape>
+<p style="font-size:24px;color:#3E4560">‫קוראת ל-update ומציירת את המצב‬</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#E6EBF2;padding:18px 28px;border-radius:20px">
+<div style="display:flex;flex-direction:row-reverse;gap:16px;align-items:baseline">
+<h3 style="font-size:32px;font-weight:700;color:#1F2438;text-align:right">‫שכבת הלוגיקה‬</h3>
+<p style="font-size:24px;color:#3E4560;text-align:right">‫קוד נקי, בלי גרפיקה‬</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;gap:20px">
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFE7CC;padding:14px 16px;border:2px solid #B04E06;border-radius:14px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;color:#1F2438;text-align:center">game.py</p>
+<p style="font-size:24px;color:#3E4560;text-align:center">‫חוקים ומצבים‬</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFDF8;padding:14px 16px;border:2px solid #E4DCCB;border-radius:14px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;color:#1F2438;text-align:center">ai.py</p>
+<p style="font-size:24px;color:#3E4560;text-align:center">‫נדידה ומרדף‬</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFDF8;padding:14px 16px;border:2px solid #E4DCCB;border-radius:14px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;color:#1F2438;text-align:center">entities.py</p>
+<p style="font-size:24px;color:#3E4560;text-align:center">‫שחקן, אויב, פצצה‬</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFDF8;padding:14px 16px;border:2px solid #E4DCCB;border-radius:14px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;color:#1F2438;text-align:center">grid.py</p>
+<p style="font-size:24px;color:#3E4560;text-align:center">‫מפת המשבצות‬</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFDF8;padding:14px 16px;border:2px solid #E4DCCB;border-radius:14px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;color:#1F2438;text-align:center">level.py</p>
+<p style="font-size:24px;color:#3E4560;text-align:center">‫טעינת 5 שלבים‬</p>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px;background:#E9E4F0;padding:18px 28px;border-radius:20px">
+<div style="display:flex;flex-direction:row-reverse;gap:16px;align-items:baseline">
+<h3 style="font-size:32px;font-weight:700;color:#1F2438;text-align:right">‫שירותים משותפים‬</h3>
+<p style="font-size:24px;color:#3E4560;text-align:right">‫גם הם בלי גרפיקה, ונבדקים אוטומטית‬</p>
+</div>
+<div style="display:flex;flex-direction:row-reverse;gap:20px">
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFDF8;padding:14px 16px;border:2px solid #E4DCCB;border-radius:14px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;color:#1F2438;text-align:center">i18n.py</p>
+<p style="font-size:24px;color:#3E4560;text-align:center">‫תרגומים‬</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFDF8;padding:14px 16px;border:2px solid #E4DCCB;border-radius:14px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;color:#1F2438;text-align:center">text.py</p>
+<p style="font-size:24px;color:#3E4560;text-align:center">‫עברית מימין לשמאל‬</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFDF8;padding:14px 16px;border:2px solid #E4DCCB;border-radius:14px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;color:#1F2438;text-align:center">settings.py</p>
+<p style="font-size:24px;color:#3E4560;text-align:center">‫שפה וצלילים‬</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:4px;background:#FFFDF8;padding:14px 16px;border:2px solid #E4DCCB;border-radius:14px">
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;font-weight:700;color:#1F2438;text-align:center">highscores.py</p>
+<p style="font-size:24px;color:#3E4560;text-align:center">‫טבלת שיאים‬</p>
+</div>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-size:24px;color:#7A7466;text-align:left">6 / 13</p>
+<p style="position:absolute;right:128px;bottom:64px;width:900px;font-size:24px;color:#7A7466;text-align:right">‫פרויקט Bomberman בהנדסת תוכנה‬</p>
+<aside>‫דפוס דומה ל-MVC: Game הוא המודל, Renderer הוא התצוגה ו-App הוא הבקר. כל הקבועים נמצאים ב-config.py.‬</aside>
+</section>

@@ -1,0 +1,54 @@
+{
+  "v": 4,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-11T18:30:00Z"
+  },
+  "lists": "css",
+  "title": "Bomberman – מצגת פרויקט ותוכנית עבודה",
+  "cover": "cover",
+  "order": [
+    "cover",
+    "product",
+    "rules",
+    "features",
+    "requirements",
+    "architecture",
+    "states",
+    "algorithms",
+    "testing",
+    "plan",
+    "team",
+    "demo",
+    "closing"
+  ],
+  "sections": {
+    "s1": {
+      "description": "פתיחה: מה בנינו ואיך משחקים",
+      "start": "cover"
+    },
+    "s2": {
+      "description": "אפיון ותכנון: דרישות, ארכיטקטורה ומצבים",
+      "start": "requirements"
+    },
+    "s3": {
+      "description": "מימוש ובדיקות",
+      "start": "algorithms"
+    },
+    "s4": {
+      "description": "תוכנית עבודה, צוות, הדגמה וסיכום",
+      "start": "plan"
+    }
+  },
+  "faces": {
+    "rubik": {
+      "family": "Rubik",
+      "href": "https://fonts.googleapis.com/css2?family=Rubik:wght@300..900&display=swap"
+    },
+    "jetbrains-mono": {
+      "family": "JetBrains Mono",
+      "href": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap"
+    }
+  },
+  "designSystems": []
+}

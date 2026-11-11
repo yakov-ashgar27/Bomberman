@@ -1,0 +1,21 @@
+<section id="algorithms" data-transition="fade" style="background:#141A2E;color:#B9C1D9;font-family:'Rubik', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:28px;font-weight:600;color:#FF8A1F;text-align:right">‫אלגוריתמים‬</p>
+<h2 style="font-size:72px;font-weight:700;line-height:1.1;color:#F6F1E7;text-align:right">‫שני רעיונות שעושים את המשחק חכם‬</h2>
+</div>
+<div style="display:flex;flex-direction:row-reverse;gap:56px">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<h3 style="font-size:44px;font-weight:700;color:#F6F1E7;text-align:right">‫האויב הסגול רודף בעזרת חיפוש לרוחב‬</h3>
+<p style="font-size:28px;line-height:1.45;color:#B9C1D9;text-align:right">‫חיפוש לרוחב (BFS) מוצא את הצעד הראשון במסלול הקצר ביותר אל השחקן, ועוקף קירות ופצצות‬</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:1.55;color:#E8EBF5;background:#1E2742;padding:28px 32px;border-radius:16px;text-align:left">queue&#160;=&#160;deque([(start,&#160;None)])<br>while&#160;queue:<br>&#160;&#160;&#160;&#160;pos,&#160;first&#160;=&#160;queue.popleft()<br>&#160;&#160;&#160;&#160;for&#160;d&#160;in&#160;Direction:<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;nxt&#160;=&#160;step(pos,&#160;d)<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if&#160;nxt&#160;==&#160;goal:&#160;return&#160;first&#160;or&#160;d<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if&#160;walkable(nxt)&#160;and&#160;nxt&#160;not&#160;in&#160;seen:<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;seen.add(nxt)<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;queue.append((nxt,&#160;first&#160;or&#160;d))</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<h3 style="font-size:44px;font-weight:700;color:#F6F1E7;text-align:right">‫תגובת שרשרת עם תור‬</h3>
+<p style="font-size:28px;line-height:1.45;color:#B9C1D9;text-align:right">‫כל פצצה שהלהבה פוגעת בה נכנסת לתור. כל פצצה מתפוצצת פעם אחת בלבד‬</p>
+<p style="font-family:'JetBrains Mono', 'Courier New', monospace;font-size:24px;line-height:1.55;color:#E8EBF5;background:#1E2742;padding:28px 32px;border-radius:16px;text-align:left">queue&#160;=&#160;list(due_bombs)<br>while&#160;queue:<br>&#160;&#160;&#160;&#160;bomb&#160;=&#160;queue.pop()<br>&#160;&#160;&#160;&#160;if&#160;bomb&#160;in&#160;done:&#160;continue<br>&#160;&#160;&#160;&#160;done.append(bomb)<br>&#160;&#160;&#160;&#160;for&#160;tile&#160;in&#160;flame_path(bomb):<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;other&#160;=&#160;bomb_at(tile)<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;if&#160;other&#160;and&#160;other&#160;not&#160;in&#160;done:<br>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;queue.append(other)</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1200px;font-size:24px;color:#7F89A8;text-align:left">8 / 13</p>
+<p style="position:absolute;right:128px;bottom:64px;width:900px;font-size:24px;color:#7F89A8;text-align:right">‫פרויקט Bomberman בהנדסת תוכנה‬</p>
+<aside>‫BFS מבטיח מסלול קצר ביותר. על מפה של 195 משבצות הוא רץ בפחות ממילישנייה. התור בתגובת השרשרת מונע רקורסיה עמוקה ופיצוץ כפול.‬</aside>
+</section>
