@@ -12,7 +12,7 @@ drawn in code, so the game ships no media files.
 |----------|------|
 | Software Requirements Specification (Hebrew) | [docs/SRS.md](docs/SRS.md) · [live doc](https://claude.ai/artifact/YUsrtuZm8a6WFD5jfL7bHA) |
 | Work plan & team roles (Hebrew) | [docs/WORK_PLAN.md](docs/WORK_PLAN.md) |
-| Presentation, 12 slides (Hebrew) | [live deck](https://claude.ai/artifact/8EieE4a2x1gf9HTao65He2) |
+| Presentation, 13 slides (Hebrew) | [live deck](https://claude.ai/artifact/8EieE4a2x1gf9HTao65He2) |
 
 ![Architecture](docs/images/architecture.png)
 
