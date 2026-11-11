@@ -16,6 +16,10 @@ lives, pause, and a persistent high-score table.
 
 ## Install & run
 
+**Windows, easiest:** double-click `PLAY_BOMBERMAN.bat`. It finds Python, installs pygame the first time, and starts the game.
+
+Or from a terminal:
+
 ```bash
 python -m pip install -r requirements.txt     # Python 3.10+
 python main.py
