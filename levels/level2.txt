@@ -1,0 +1,14 @@
+; Level 2 - generated with seed 202
+###############
+#P....BB...OB.#
+#.#B#.#.#.#.#.#
+#.BB.E.BBB..BB#
+#.#.#.#1#B#B#.#
+#BBB.B.B.BB..B#
+#B#B#B#B#.#.#B#
+#B.B2..3..B.B.#
+#B#E#.#.#B#.#.#
+#BB.BXBB..OBB.#
+#B#B#B#E#.#.#B#
+#B..B.B....B..#
+###############
