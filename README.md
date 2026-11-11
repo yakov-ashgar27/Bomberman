@@ -1,8 +1,10 @@
 # Bomberman — Software Engineering Course Project
 
-A complete Bomberman clone in Python + Pygame: 3 levels, two enemy types (one
+A complete Bomberman clone in Python + Pygame: 5 levels, two enemy types (one
 uses BFS path-finding), power-ups, chain-reaction explosions, a level timer,
-lives, pause, and a persistent high-score table.
+lives, pause, sound effects and music, English or Hebrew (right-to-left), and a
+persistent high-score table. Sounds are synthesised in code and graphics are
+drawn in code, so the game ships no media files.
 
 ## Documentation
 
@@ -32,8 +34,15 @@ python main.py
 | Arrows / WASD | Move |
 | Space | Drop bomb |
 | P / Esc | Pause / resume |
+| M | Sound on / off |
 | Q (while paused) | Back to menu |
 | Enter | Confirm |
+| Left / Right (menu) | Change language or sound |
+
+Language (English / עברית) and sound are chosen in the main menu and saved in
+`settings.json`. Hebrew needs a system font with Hebrew letters (Arial, Segoe
+UI or Tahoma on Windows, DejaVu Sans on Linux); without one the game stays in
+English.
 
 ## Rules
 
@@ -49,7 +58,8 @@ python -m pip install pytest
 python -m pytest -v
 ```
 
-59 automated tests cover the game logic (~95% of the logic code). The logic
+82 automated tests cover the game logic, sound synthesis, translations and
+right-to-left text (~95% of the logic code). The logic
 (`game.py`, `ai.py`, `level.py`, …) never imports pygame, which is why it can
 be tested without opening a window.
 
@@ -65,9 +75,14 @@ bomberman/
   ai.py                 enemy behaviour (wander, BFS chase)
   game.py               Game model + state machine (no pygame)
   highscores.py         JSON high-score table
-  renderer.py           all drawing (pygame primitives only)
-  app.py                window, main loop, input, screen switching
-levels/level1..3.txt    the levels (editable by hand)
+  settings.py           language + sound settings (settings.json)
+  i18n.py               all on-screen text in English and Hebrew
+  text.py               right-to-left (bidi) reordering for Hebrew
+  sound.py              sound effects + music synthesised in code, player
+  renderer.py           all drawing (pygame primitives only), Hebrew font lookup
+  app.py                window, main loop, input, menu, sound, screen switching
+levels/level1..5.txt    the levels (editable by hand)
+PLAY_BOMBERMAN.bat      one-click launcher for Windows
 tools/generate_levels.py  regenerates the levels from fixed seeds
 tests/                  pytest unit + integration tests
 ```
@@ -76,5 +91,5 @@ tests/                  pytest unit + integration tests
 
 Level files are text: `#` wall, `.` floor, `B` brick, `P` player start,
 `E` balloon, `O` oneal, `X` brick hiding the exit, `1`/`2`/`3` bricks hiding
-bomb/fire/speed power-ups. The border must be walls. Add `level4.txt` and the
+bomb/fire/speed power-ups. The border must be walls. Add `level6.txt` and the
 game picks it up automatically.

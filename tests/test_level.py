@@ -50,6 +50,10 @@ def test_shipped_levels_are_valid():
         assert len(data.enemies) >= 1
 
 
+def test_game_ships_five_levels():
+    assert len(load_level_texts("levels")) == 5
+
+
 def test_shipped_level_file_loads():
     assert load_level_file("levels/level1.txt").name == "level1"
 

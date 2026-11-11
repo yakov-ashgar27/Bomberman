@@ -1,0 +1,14 @@
+; Level 4 - generated with seed 404
+###############
+#P..BBBB.XBB..#
+#.#B#.#B#.#.#1#
+#.BBBBBBB..BB2#
+#.#.#.#E#.#B#.#
+#.BOB.BB.BBBBB#
+#B#B#B#B#.#B#B#
+#.....O.BO3.BB#
+#.#.#B#B#B#E#B#
+#3.BBBOBBB...B#
+#B#B#.#B#.#B#.#
+#.B.2O.BBBBB.B#
+###############

@@ -44,6 +44,24 @@ ENEMY_STATS = {
 }
 ENEMY_TURN_CHANCE = 0.2    # chance a wandering enemy turns at a junction
 
+# --- Sound ---------------------------------------------------------------
+SAMPLE_RATE = 22050
+SFX_VOLUME = 0.7
+MUSIC_VOLUME = 0.35
+
+# --- Settings ------------------------------------------------------------
+SETTINGS_FILE = "settings.json"
+# fonts tried, in order, for Hebrew text (pygame's built-in font has no Hebrew)
+HEBREW_FONT_FILES = ["arial.ttf", "segoeui.ttf", "tahoma.ttf", "david.ttf", "calibri.ttf"]  # Windows
+HEBREW_FONT_PATHS = [
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",                # Linux
+    "/usr/share/fonts/TTF/DejaVuSans.ttf",
+    "/System/Library/Fonts/Supplemental/Arial.ttf",                   # macOS
+    "/Library/Fonts/Arial Unicode.ttf",
+]
+HEBREW_FONTS = ["arial", "segoeui", "tahoma", "dejavusans", "freesans",
+                "liberationsans", "notosanshebrew", "david", "arialunicodems"]
+
 # --- High scores ---------------------------------------------------------
 HIGHSCORE_FILE = "highscores.json"
 MAX_HIGHSCORES = 5

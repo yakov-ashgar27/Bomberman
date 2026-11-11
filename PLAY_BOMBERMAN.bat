@@ -20,8 +20,11 @@ if not defined PY (
 )
 echo Using: %PY%
 "%PY%" --version
-echo Installing pygame (first time only, needs internet)...
-"%PY%" -m pip install --user --quiet -r requirements.txt
+"%PY%" -c "import pygame" >nul 2>nul
+if errorlevel 1 (
+  echo Installing pygame - first time only, needs internet...
+  "%PY%" -m pip install --user --quiet -r requirements.txt
+)
 echo Starting the game...
 "%PY%" main.py
 if errorlevel 1 pause

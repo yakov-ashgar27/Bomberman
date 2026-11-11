@@ -1,0 +1,14 @@
+; Level 5 - generated with seed 505
+###############
+#P..B.BOB..B.E#
+#.#B#B#.#.#.#.#
+#..BBBBOO.....#
+#B#.#.#X#B#B#B#
+#.....BBBB.B.B#
+#.#.#.#O#.#B#B#
+#.BB3BOB..B2B.#
+#B#3#B#O#1#B#.#
+#B.BBBBBB.OBBB#
+#B#.#B#B#B#.#.#
+#B.B.2..BB.3..#
+###############
