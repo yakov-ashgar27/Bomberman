@@ -11,7 +11,7 @@
 
 ### 1.2 היקף המוצר
 
-Bomberman הוא משחק מבוך דו-ממדי לשחקן יחיד, שרץ על מחשב שולחני (Windows, macOS ו-Linux). השחקן מניח פצצות כדי לפוצץ לבנים ולחסל אויבים, אוסף שיפורים (power-ups) ומחפש את דלת היציאה. בגרסה 1.1 יש 5 שלבים, 2 סוגי אויבים, 3 סוגי שיפורים, צלילים ומוזיקת רקע, בחירה בין אנגלית לעברית, טבלת שיאים שנשמרת בין הפעלות, ו-82 בדיקות אוטומטיות.
+Bomberman הוא משחק מבוך דו-ממדי לשחקן יחיד, שרץ על מחשב שולחני (Windows, macOS ו-Linux). השחקן מניח פצצות כדי לפוצץ לבנים ולחסל אויבים, אוסף שיפורים (power-ups) ומחפש את דלת היציאה. בגרסה 1.1 יש 5 שלבים, 2 סוגי אויבים, 3 סוגי שיפורים, צלילים ומוזיקת רקע, בחירה בין אנגלית לעברית, טבלת שיאים שנשמרת בין הפעלות, ו-84 בדיקות אוטומטיות.
 
 מחוץ להיקף של גרסה 1.1: משחק רב-משתתפים ברשת, עורך שלבים גרפי, ושמירת מצב באמצע שלב.
 
@@ -142,7 +142,7 @@ Bomberman הוא משחק מבוך דו-ממדי לשחקן יחיד, שרץ ע�
 | FR-04 | השחקן יניח פצצה במשבצת שלו, עד המכסה שלו של פצצות פעילות, ולא יותר מפצצה אחת במשבצת | Must | game.py |
 | FR-05 | פצצה תתפוצץ אחרי 2.5 שניות. הלהבה תתפשט עד גבול הטווח, תיעצר בקיר ותהרוס רק את הלבנה הראשונה בכל כיוון | Must | game.py |
 | FR-06 | להבה שפוגעת בפצצה אחרת תפוצץ אותה מיד (תגובת שרשרת) | Should | game.py |
-| FR-07 | האויבים יזוזו לבד בלי לעבור דרך מכשולים. O'Neal ירדוף אחרי השחקן במסלול הקצר ביותר כשהוא בטווח. מגע עם אויב הורג את השחקן, ולהבה הורגת אויבים | Must | ai.py, game.py |
+| FR-07 | האויבים יזוזו לבד בלי לעבור דרך מכשולים. O'Neal ירדוף אחרי השחקן במסלול הקצר ביותר כשהוא בטווח. מגע עם אויב הורג את השחקן, ולהבה הורגת אויבים. אויב שנמצא באמצע צעד נפגע מלהבה בכל אחת משתי המשבצות שהוא עובר ביניהן | Must | ai.py, game.py |
 | FR-08 | הריסת לבנה תחשוף את השיפור שמתחתיה. מעבר על השיפור יאסוף אותו וישפר את השחקן, עד התקרה | Should | game.py, entities.py |
 | FR-09 | לשחקן יהיו 3 חיים. מוות יתחיל את השלב מחדש וישמור על הניקוד. כשהחיים נגמרים, המשחק מסתיים (Game Over) | Must | game.py |
 | FR-10 | לכל שלב יהיה שעון של 180 שניות. כשהוא מגיע לאפס, השחקן מת | Should | game.py |
@@ -316,7 +316,7 @@ Bomberman הוא משחק מבוך דו-ממדי לשחקן יחיד, שרץ ע�
 
 ## 9. תוכנית בדיקות ומטריצת עקיבות
 
-כל 82 הבדיקות האוטומטיות עוברות בפחות משנייה, וכיסוי קוד הלוגיקה הוא כ-95%. כל דרישה פונקציונלית מכוסה על ידי בדיקה אוטומטית אחת לפחות, חוץ מ-FR-14 ו-FR-15 (ממשק גרפי) שנבדקות ידנית.
+כל 84 הבדיקות האוטומטיות עוברות בפחות משנייה, וכיסוי קוד הלוגיקה הוא כ-95%. כל דרישה פונקציונלית מכוסה על ידי בדיקה אוטומטית אחת לפחות, חוץ מ-FR-14 ו-FR-15 (ממשק גרפי) שנבדקות ידנית.
 
 ### 9.1 רמות בדיקה
 
@@ -337,7 +337,7 @@ Bomberman הוא משחק מבוך דו-ממדי לשחקן יחיד, שרץ ע�
 | FR-04 | test_bombs::test_place_bomb_respects_limit | 1 | עובר |
 | FR-05 | test_bombs::test_bomb_explodes_after_fuse, test_flames_stop_at_walls, test_flame_destroys_only_first_brick_in_line, test_flames_disappear_after_duration | 6 | עובר |
 | FR-06 | test_bombs::test_chain_reaction | 1 | עובר |
-| FR-07 | test_enemies::test_bfs_finds_shortest_first_step, test_oneal_chases_player_in_range, test_enemy_contact_kills_player, test_wandering_enemy_never_walks_into_walls | 9 | עובר |
+| FR-07 | test_enemies::test_bfs_finds_shortest_first_step, test_oneal_chases_player_in_range, test_enemy_contact_kills_player, test_wandering_enemy_never_walks_into_walls, test_flame_kills_enemy_that_is_still_walking_off_the_tile, test_bomb_in_corridor_kills_wandering_balloon | 11 | עובר |
 | FR-08 | test_player::test_powerups_increase_stats_with_caps, test_walking_over_powerup_collects_it; test_bombs::test_destroying_brick_reveals_powerup_and_exit | 3 | עובר |
 | FR-09 | test_game_flow::test_death_restarts_level_and_keeps_score, test_game_over_after_last_life | 2 | עובר |
 | FR-10 | test_game_flow::test_timer_counts_down_and_kills_at_zero | 1 | עובר |

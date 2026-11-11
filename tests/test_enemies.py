@@ -87,3 +87,34 @@ def test_enemies_move_over_time():
     game.player.place_at(1, 5)        # keep the player out of the way
     run(game, 2.0)
     assert game.enemies[0].pos != start
+
+
+def test_flame_kills_enemy_that_is_still_walking_off_the_tile():
+    """Regression: an enemy drawn on a burning tile while moving away must die."""
+    game = make_game()
+    freeze_enemies(game)
+    enemy = game.enemies[0]
+    enemy.place_at(3, 3)
+    enemy.speed, enemy.cooldown = 2.0, 0.0
+    enemy.move(Direction.RIGHT)        # logically on (4,3), drawn between (3,3) and (4,3)
+    enemy.tick(0.1)
+    game.flames[(3, 3)] = config.EXPLOSION_DURATION
+    game._check_collisions()
+    assert not enemy.alive
+    assert game.score == config.ENEMY_STATS["balloon"]["points"]
+
+
+def test_bomb_in_corridor_kills_wandering_balloon():
+    """End to end: a balloon walking along a corridor into a blast dies."""
+    level = """
+#########
+#P......#
+#.#####.#
+#E.....X#
+#########
+"""
+    game = make_game(level, seed=5)
+    game.player.place_at(7, 1)
+    game.bombs.append(Bomb(3, 3, 2, timer=0.6))   # covers (1..5, 3)
+    run(game, 1.2)
+    assert game.enemies_remaining == 0

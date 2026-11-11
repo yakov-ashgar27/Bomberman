@@ -254,9 +254,18 @@ class Game:
         px, py = self.player.render_pos()
         return math.hypot(ex - px, ey - py) < config.CONTACT_DISTANCE
 
+    @staticmethod
+    def _occupied_tiles(mover) -> set[tuple[int, int]]:
+        """Tiles a mover touches: while it walks between two tiles it is drawn
+        across both, so a flame on either one must hit it."""
+        tiles = {mover.pos}
+        if not mover.can_move():
+            tiles.add((mover.prev_x, mover.prev_y))
+        return tiles
+
     def _check_collisions(self) -> None:
         for enemy in self.enemies:
-            if enemy.alive and enemy.pos in self.flames:
+            if enemy.alive and self._occupied_tiles(enemy) & self.flames.keys():
                 enemy.alive = False
                 self.score += enemy.points
                 self.events.append("enemy_killed")

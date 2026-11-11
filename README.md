@@ -58,7 +58,7 @@ python -m pip install pytest
 python -m pytest -v
 ```
 
-82 automated tests cover the game logic, sound synthesis, translations and
+84 automated tests cover the game logic, sound synthesis, translations and
 right-to-left text (~95% of the logic code). The logic
 (`game.py`, `ai.py`, `level.py`, …) never imports pygame, which is why it can
 be tested without opening a window.
