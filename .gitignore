@@ -4,3 +4,5 @@ __pycache__/
 highscores.json
 settings.json
 docs/presentation/source/build/
+bomberman_error.log
+shortcut_install.log

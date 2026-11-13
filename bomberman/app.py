@@ -1,6 +1,7 @@
 """Application shell: window, main loop, keyboard input, sound and screen switching."""
 from __future__ import annotations
 
+import sys
 from enum import Enum, auto
 from pathlib import Path
 
@@ -10,7 +11,7 @@ from . import config, i18n
 from .game import Action, Game, GameState
 from .highscores import HighScoreTable
 from .level import load_level_texts
-from .renderer import Renderer
+from .renderer import Renderer, make_window_icon
 from .settings import Settings
 from .sound import SOUND_EVENTS, SoundPlayer
 
@@ -34,12 +35,46 @@ class Screen(Enum):
     HIGHSCORES = auto()
 
 
+def _set_windows_icon(ico_path: Path) -> None:
+    """Give the window (and its taskbar button) the real .ico at every size.
+
+    pygame only sets a small 32x32 icon, so on Windows the taskbar falls back
+    to pythonw's own icon; sending WM_SETICON with the .ico fixes that."""
+    if sys.platform != "win32" or not ico_path.exists():
+        return
+    try:
+        import ctypes
+        user32 = ctypes.windll.user32
+        user32.LoadImageW.restype = ctypes.c_void_p
+        user32.SendMessageW.argtypes = [ctypes.c_void_p, ctypes.c_uint, ctypes.c_void_p, ctypes.c_void_p]
+        hwnd = pygame.display.get_wm_info().get("window")
+        if not hwnd:
+            return
+        IMAGE_ICON, LR_LOADFROMFILE, WM_SETICON = 1, 0x10, 0x0080
+        big = user32.GetSystemMetrics(11)    # SM_CXICON for this screen's DPI
+        small = user32.GetSystemMetrics(49)  # SM_CXSMICON
+        for kind, size in ((1, max(big, 48)), (0, small or 16)):  # ICON_BIG = 1, ICON_SMALL = 0
+            handle = user32.LoadImageW(None, str(ico_path), IMAGE_ICON, size, size, LR_LOADFROMFILE)
+            if handle:
+                user32.SendMessageW(hwnd, WM_SETICON, kind, handle)
+    except Exception:
+        pass
+
+
 class App:
     def __init__(self):
+        if sys.platform == "win32":  # own taskbar entry and icon, not Python's
+            try:
+                import ctypes
+                ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("Bomberman.Game")
+            except Exception:
+                pass
         pygame.mixer.pre_init(config.SAMPLE_RATE, -16, 1, 512)
         pygame.init()
         pygame.display.set_caption("Bomberman")
+        pygame.display.set_icon(make_window_icon())
         self.screen = pygame.display.set_mode((config.SCREEN_WIDTH, config.SCREEN_HEIGHT))
+        _set_windows_icon(ROOT / "assets" / "bomberman.ico")
         self.clock = pygame.time.Clock()
         self.settings_path = ROOT / config.SETTINGS_FILE
         self.settings = Settings.load(self.settings_path)

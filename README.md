@@ -20,6 +20,8 @@ drawn in code, so the game ships no media files.
 
 **Windows, easiest:** double-click `PLAY_BOMBERMAN.bat`. It finds Python, installs pygame the first time, and starts the game.
 
+**Open it like an app (Windows):** double-click `INSTALL_SHORTCUT.bat` once. It adds a **Bomberman** icon to the desktop and the Start menu. The shortcut opens the game in its own window with the bomb icon and no console window (it runs `Bomberman.pyw` with `pythonw.exe`). If you move the folder, run `INSTALL_SHORTCUT.bat` again.
+
 Or from a terminal:
 
 ```bash
@@ -83,6 +85,9 @@ bomberman/
   app.py                window, main loop, input, menu, sound, screen switching
 levels/level1..5.txt    the levels (editable by hand)
 PLAY_BOMBERMAN.bat      one-click launcher for Windows
+INSTALL_SHORTCUT.bat    creates desktop / Start-menu shortcuts (one time)
+Bomberman.pyw           app launcher used by the shortcut (no console)
+assets/bomberman.ico    app icon (made by tools/make_icon.py)
 tools/generate_levels.py  regenerates the levels from fixed seeds
 tests/                  pytest unit + integration tests
 docs/                   SRS (md/pdf/docx), work plan, diagrams, presentation

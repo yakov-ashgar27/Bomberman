@@ -44,6 +44,19 @@ def tile_rect(x: float, y: float) -> pygame.Rect:
     return pygame.Rect(int(x * TS), int(y * TS) + TOP, TS, TS)
 
 
+def make_window_icon() -> pygame.Surface:
+    """The bomb icon for the window title bar and taskbar, drawn in code."""
+    icon = pygame.Surface((32, 32), pygame.SRCALPHA)
+    pygame.draw.rect(icon, (20, 26, 46), (0, 0, 32, 32), border_radius=6)
+    pygame.draw.circle(icon, (10, 12, 22), (14, 19), 10)
+    pygame.draw.circle(icon, (70, 82, 120), (14, 19), 10, 2)
+    pygame.draw.circle(icon, (60, 70, 104), (10, 15), 3)
+    pygame.draw.line(icon, (222, 204, 160), (21, 10), (26, 5), 2)
+    pygame.draw.circle(icon, ORANGE, (27, 4), 4)
+    pygame.draw.circle(icon, YELLOW, (27, 4), 2)
+    return icon
+
+
 class Renderer:
     SIZES = {"small": 26, "normal": 36, "big": 72}
 
