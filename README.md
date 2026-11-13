@@ -6,13 +6,8 @@ lives, pause, sound effects and music, English or Hebrew (right-to-left), and a
 persistent high-score table. Sounds are synthesised in code and graphics are
 drawn in code, so the game ships no media files.
 
-## How this was built (transparency)
+## Where to look in the code
 
-I built this project with **Claude Code** (Anthropic) as an AI pair-programmer. Commits it helped write carry a `Co-Authored-By: Claude` line, so the history shows exactly what was done and how.
-
-**My part:** I defined the game, wrote the requirements (SRS) and the work plan, chose the architecture (a game-state machine, with rendering separate from game logic), played and tested the game, and decided what to fix after each round. One example is the bug fix that made bombs reliably kill enemies.
-
-**Where to look in the code:**
 - [`bomberman/ai.py`](bomberman/ai.py): enemy AI, where the "oneal" enemy chases you with breadth-first search.
 - [`bomberman/game.py`](bomberman/game.py): game states, bombs and chain-reaction explosions.
 - [`tests/`](tests/): 84 pytest tests that run headless, without a window.
